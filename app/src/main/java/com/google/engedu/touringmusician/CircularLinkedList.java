@@ -26,7 +26,6 @@ import java.util.Iterator;
 public class CircularLinkedList implements Iterable<Point> {
     Node tail;
     Node head;
-    int counter = 0;
     private class Node {
         Point point;
         Node prev, next;
@@ -62,7 +61,7 @@ public class CircularLinkedList implements Iterable<Point> {
         Node newNode = new Node(p, tail, head);
         tail.next = newNode;
         head.prev = newNode;
-        newNode = tail;
+        tail = newNode;
     }
 
     private float distanceBetween(Point from, Point to) {
@@ -88,7 +87,8 @@ public class CircularLinkedList implements Iterable<Point> {
             insertFirstNode(p);
         }
         else {
-            //float nearest = Float.POSITIVE_INFINITY;
+            // set nearest equal to distance between point and head point then check if
+            // other points are closer
             float nearest = distanceBetween(p, head.point);
             Node nearestNode = head;
             Node curr = head.next;

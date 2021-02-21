@@ -63,11 +63,6 @@ public class TourMap extends View {
             }
             prev = p;
         }
-        /**
-         **
-         **  YOUR CODE GOES HERE
-         **
-         **/
     }
 
     @Override
